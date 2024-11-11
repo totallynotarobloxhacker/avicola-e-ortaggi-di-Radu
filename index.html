@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avicola di Radu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(45deg, #4CAF50, #2C6B2F, #FF5733, #FFC300); /* Gradient background */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite; /* Animation for smooth color transition */
+        }
+
+        /* Title text style */
+        h1 {
+            font-size: 80px; /* Big text */
+            color: green; /* Green color */
+            margin-top: 50px;
+            z-index: 1; /* Ensures it stays above other elements */
+        }
+
+        /* Subheading text style */
+        h2 {
+            font-size: 24px; /* Medium text */
+            color: black; /* Black color */
+            margin-top: 20px;
+        }
+
+        /* Additional info text style */
+        p {
+            font-size: 20px; /* Medium text for the new paragraph */
+            color: black; /* Black color */
+            margin-top: 20px;
+        }
+
+        /* Centered content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto; /* Ensure container height is based on content */
+            padding-bottom: 100px; /* Adds extra space at the bottom to enable scrolling */
+            position: relative; /* For proper stacking of elements */
+        }
+
+        /* Image styling */
+        img {
+            max-width: 80%; /* Ensure the image doesn't overflow */
+            height: auto;
+            margin-top: 30px;
+            animation: shake 0.5s ease infinite; /* Apply shake animation */
+        }
+
+        /* Keyframes for the shake animation */
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-10px);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+            75% {
+                transform: translateX(-10px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Animation for gradient */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Button Styling */
+        .whatsapp-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E; /* Darker green on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Title with cycling fonts and colors -->
+        <h1 id="title">Avicola di Radu</h1>
+        
+        <!-- Main Subheading -->
+        <h2>Buongiorno! Benvenuti all'Avicola di Radu! Il posto dove si prendono gli ortaggi originali, senza chemicali!</h2>
+        <h2>Cercate galline ma i prezzi delle galline stanno esplodendo? Non preoccupatevi! Noi vendiamo pure le galline.</h2>
+        
+        <!-- Chicken Image -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqw7GT0NG8_AJfMgb3fo05LXIEQIrWfQKTRcHoONerR0Zsotg-&s" alt="Chicken with Vegetables">
+
+        <!-- Price Info -->
+        <p>1 gallina solo per: 10 euro! (Non vi domandate, questo è il figlio di Radu che costruisce questo sito. Contattate Radu per dare un feedback sul prezzo.)</p>
+        
+        <!-- WhatsApp Contact Section -->
+        <div>
+            <p>Contattate Radu via WhatsApp, ecco il suo numero:</p>
+            <p><strong>39 329 733 7253</strong></p>
+            
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/393297337253?text=Salve,%20ho%20visto%20il%20sito%20di%20Avicola%20di%20Radu.%20Mi%20interessa%20acquistare%20le%20galline." class="whatsapp-button" target="_blank">
+                Contatta su WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Extra space to create scrolling with blank text -->
+    <div style="height: 100px;">
+        <p> </p> <!-- Blank text -->
+        <p> </p> <!-- Blank text -->
+        <p> </p> <!-- Blank text -->
+    </div>
+
+    <script>
+        // Array of fonts to cycle through
+        const fonts = [
+            'Arial, sans-serif',
+            'Verdana, Geneva, sans-serif',
+            'Courier New, Courier, monospace',
+            'Georgia, serif',
+            'Times New Roman, Times, serif',
+            'Comic Sans MS, cursive, sans-serif',
+            'Impact, Charcoal, sans-serif',
+            'Tahoma, Geneva, sans-serif'
+        ];
+
+        // Array of colors to cycle through
+        const colors = ['red', 'green', 'darkgreen', 'black', 'brown', 'white'];
+
+        let currentFontIndex = 0;
+        let currentColorIndex = 0;
+
+        // Function to change the font and color of the title every 1 second
+        function changeFontAndColor() {
+            const title = document.getElementById('title');
+            // Change font family
+            title.style.fontFamily = fonts[currentFontIndex];
+            // Change text color
+            title.style.color = colors[currentColorIndex];
+
+            // Move to the next font and color
+            currentFontIndex = (currentFontIndex + 1) % fonts.length;
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+
+            // Restart the process once all fonts and colors have been used
+            setTimeout(changeFontAndColor, 1000);  // 1000ms = 1 second
+        }
+
+        // Start changing fonts and colors immediately
+        changeFontAndColor();
+    </script>
+</body>
+</html>
